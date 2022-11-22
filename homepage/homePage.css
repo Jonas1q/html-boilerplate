@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap");
+
+body {
+  font-family: "Kanit", sans-serif;
+  background-color: #4a7e79;
+}
+
+#topmenu {
+  background: #003226;
+  width: 100%;
+  height: 50px;
+  line-height: 25px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 15px;
+}
+
+#topmenu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+}
+
+#topmenu #menu-left {
+  left: 0;
+}
+#topmenu #menu-right {
+  right: 0;
+  padding-top: 5px;
+}
+
+#topmenu li {
+  display: inline-block;
+  padding: 5px 20px;
+}
+
+#topmenu a {
+  color: white;
+  text-decoration: none;
+}
+
+#topmenu a:hover {
+  opacity: 85%;
+}
+
+#logomenu {
+  display: block;
+  width: 10%;
+  margin: 0 auto;
+}
+
+#topmenu img {
+  margin: 0 auto;
+  display: block;
+  max-height: 41%;
+  max-width: 41%;
+}
+
+.container #navbar {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  width: 0px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 5px 5px #000;
+}
+
+.container #sidetoggle {
+  font-size: 2em;
+}
+
+.container #sidetoggle:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.container #navbar ul li a {
+  display: flex;
+  font-size: 1.2em;
+  align-items: center;
+  padding: 10px 30px;
+  height: 50px;
+}
+.container #navbar ul li a:hover {
+  background-color: blue;
+}
+
+#toggle {
+  display: none;
+}
+
+input[type="checkbox"]:checked ~ #navbar {
+  width: 250px;
+  overflow: visible;
+  transition: 0.5s ease;
+}
