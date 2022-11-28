@@ -6,10 +6,7 @@ function myFunction() {
 function ValidateEmail() {
   var mail = document.getElementById("email").value;
   var regx = /\S+@\S+\.\S+/;
-
   if (regx.test(mail)) {
     alert("A valid email");
-    return true;
   } else alert("Not a valid email");
-  return false;
 }
