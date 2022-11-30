@@ -64,7 +64,6 @@
     <script>
       const urlUser = "https://localhost:7002/TblUsers";
       async function verifyLogin() {
-        var elem = document.getElementById("LoginBtn");
         const response = await fetch(urlUser).catch((err) =>
           alert("CORS is being a little bitch")
         );
