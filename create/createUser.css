@@ -18,18 +18,17 @@ body {
 
 .dark-mode {
   background-color: #003226;
-  color: white;
 }
 
 form {
   border: 5px solid #003226;
-  background-color: white;
+  background-color: whitesmoke;
   box-shadow: var(--shadow);
   border-radius: 20px;
 }
 
 .container {
-  padding: 15%;
+  padding: 10%;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -41,7 +40,8 @@ form {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="tel"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -118,4 +118,10 @@ input[type="password"] {
 }
 .slider.round::before {
   border-radius: 50%;
+}
+
+#redirectToLogin {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
