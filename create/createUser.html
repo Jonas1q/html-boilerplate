@@ -86,14 +86,38 @@
       const createForm = document.getElementById("myForm");
 
       createForm.addEventListener("submit", function (e) {
-        let userEmail = document.getElementById("email").value;
-        let pass = document.getElementById("password").value;
-        let firstName = document.getElementById("namefieldFirst").value;
-        let lastName = document.getElementById("namefieldLast").value;
-        let phone = document.getElementById("phone").value;
+        var userEmail = document.getElementById("email").value;
         e.preventDefault();
 
-        fetch(urlCreate, {
+        fetchEmails().then((data) => {
+          for (let index = 0; index < data.length; index++) {
+            if (userEmail == data[index]["fldEmail"]) {
+              alert("email exists");
+              return;
+            }
+          }
+          postEmail();
+          alert("Your account has been created successfully");
+        });
+      });
+
+      async function fetchEmails() {
+        const response = await fetch(urlCreate, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        return response.json();
+      }
+
+      async function postEmail() {
+        var userEmail = document.getElementById("email").value;
+        var pass = document.getElementById("password").value;
+        var firstName = document.getElementById("namefieldFirst").value;
+        var lastName = document.getElementById("namefieldLast").value;
+        var phone = document.getElementById("phone").value;
+        await fetch(urlCreate, {
           method: "POST",
           body: JSON.stringify({
             fldFirstName: firstName,
@@ -108,7 +132,7 @@
         })
           .then((res) => res.json())
           .catch((err) => console.log(err));
-      });
+      }
     </script>
   </body>
 </html>
