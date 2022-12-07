@@ -61,10 +61,14 @@
       const urlUser = "https://localhost:7002/TblUsers";
       async function fetchTblGroups() {
         const result = await fetch(urlGroup);
-        await result.json().then((data) => {
-          document.getElementById("group1").innerHTML = data[0]["fldGroupName"];
-          console.log(data[0]);
-        });
+        await result
+          .json()
+          .then((data) => {
+            document.getElementById("group1").innerHTML =
+              data[0]["fldGroupName"];
+            console.log(data[0]);
+          })
+          .catch((err) => console.log("ERROR!!!!"));
       }
 
       async function fetchTblUser() {

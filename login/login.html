@@ -64,20 +64,26 @@
 
     <script>
       const urlUser = "https://localhost:7002/TblUsers";
+
       async function verifyLogin() {
         const response = await fetch(urlUser).catch((err) =>
           alert("CORS is being a little bitch")
         );
         var username = document.getElementById("email").value;
+        var pass = document.getElementById("password").value;
         if (response == null) {
           alert("response is null :(");
           return;
         }
+
         await response.json().then((data) => {
           for (let index = 0; index < data.length; index++) {
             if (username == data[index]["fldEmail"]) {
-              window.location = "/homepage/homePage.html";
-              return;
+              if (pass == data[index]["fldPassword"]) {
+                alert("nice job logging in chief");
+                window.location = "/homepage/homePage.html";
+                return;
+              }
             }
           }
           alert("User does not exist");

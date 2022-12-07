@@ -85,8 +85,9 @@
       const urlCreate = "https://localhost:7002/TblUsers";
       const createForm = document.getElementById("myForm");
 
-      createForm.addEventListener("submit", function (e) {
+      createForm.addEventListener("submit", async function (e) {
         var userEmail = document.getElementById("email").value;
+
         e.preventDefault();
 
         fetchEmails().then((data) => {
@@ -96,9 +97,9 @@
               return;
             }
           }
-          postEmail();
-          alert("Your account has been created successfully");
         });
+        postEmail();
+        alert("Your account has been created successfully");
       });
 
       async function fetchEmails() {
@@ -123,6 +124,7 @@
             fldFirstName: firstName,
             fldLastName: lastName,
             fldEmail: userEmail,
+            fldPassword: pass,
             fldPhoneNumber: phone,
             fldIsAdmin: false,
           }),
